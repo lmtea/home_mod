@@ -1,79 +1,79 @@
 minetest.register_craft({
-	output = 'node "home_mod:rose_petal" 6',
+	output = 'craft "home_mod:rose_petal" 6',
 	recipe = {
 		{'node "flowers:flower_rose"'},
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:dandelion_yellow_petal" 6',
+	output = 'craft "home_mod:dandelion_yellow_petal" 6',
 	recipe = {
 		{'node "flowers:flower_dandelion_yellow"'},
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:dandelion_white_petal" 6',
+	output = 'craft "home_mod:dandelion_white_petal" 6',
 	recipe = {
 		{'node "flowers:flower_dandelion_white"'},
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:tulip_petal" 6',
+	output = 'craft "home_mod:tulip_petal" 6',
 	recipe = {
 		{'node "flowers:flower_tulip"'},
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:viola_petal" 6',
+	output = 'craft "home_mod:viola_petal" 6',
 	recipe = {
 		{'node "flowers:flower_viola"'},
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:rose_can" 1',
+	output = 'craft "home_mod:rose_can" 1',
 	recipe = {
 		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'node "home_mod:rose_petal"', 'node "cobble"'},
+		{'node "cobble"', 'craft "home_mod:rose_petal"', 'node "cobble"'},
 		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:tulip_can" 1',
+	output = 'craft "home_mod:tulip_can" 1',
 	recipe = {
 		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'node "home_mod:tulip_petal"', 'node "cobble"'},
+		{'node "cobble"', 'craft "home_mod:tulip_petal"', 'node "cobble"'},
 		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:viola_can" 1',
+	output = 'craft "home_mod:viola_can" 1',
 	recipe = {
 		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'node "home_mod:viola_petal"', 'node "cobble"'},
+		{'node "cobble"', 'craft "home_mod:viola_petal"', 'node "cobble"'},
 		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:dandelion_yellow_can" 1',
+	output = 'craft "home_mod:dandelion_yellow_can" 1',
 	recipe = {
 		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'node "home_mod:dandelion_yellow_petal"', 'node "cobble"'},
+		{'node "cobble"', 'craft "home_mod:dandelion_yellow_petal"', 'node "cobble"'},
 		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
 	}
 })
 
 minetest.register_craft({
-	output = 'node "home_mod:dandelion_white_can" 1',
+	output = 'craft "home_mod:dandelion_white_can" 1',
 	recipe = {
 		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'node "home_mod:dandelion_white_petal"', 'node "cobble"'},
+		{'node "cobble"', 'craft "home_mod:dandelion_white_petal"', 'node "cobble"'},
 		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
 	}
 })
@@ -143,147 +143,6 @@ minetest.register_craft({
 
 ----------------------------
 
-
-minetest.register_node("home_mod:rose_petal", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"rose_petal.png"},
-	inventory_image = "rose_petal.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:rose_petal" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:dandelion_yellow_petal", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"dandelion_yellow_petal.png"},
-	inventory_image = "dandelion_yellow_petal.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:dandelion_yellow_petal" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:dandelion_white_petal", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"dandelion_white_petal.png"},
-	inventory_image = "dandelion_white_petal.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:dandelion_white_petal" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:tulip_petal", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"tulip_petal.png"},
-	inventory_image = "tulip_petal.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:tulip_petal" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:viola_petal", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"viola_petal.png"},
-	inventory_image = "viola_petal.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:viola_petal" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:rose_can", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"rose_can.png"},
-	inventory_image = "rose_can.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:rose_can" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:tulip_can", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"tulip_can.png"},
-	inventory_image = "tulip_can.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:tulip_can" 1',
-	material = minetest.digprop_constanttime(0.0),
-
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:viola_can", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"viola_can.png"},
-	inventory_image = "viola_can.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:viola_can" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:dandelion_yellow_can", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"dandelion_yellow_can.png"},
-	inventory_image = "dandelion_yellow_can.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:dandelion_yellow_can" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
-
-minetest.register_node("home_mod:dandelion_white_can", {
-	drawtype = "plantlike",
-	visual_scale = 1.0,
-	tile_images = {"dandelion_white_can.png"},
-	inventory_image = "dandelion_white_can.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:dandelion_white_can" 1',
-	material = minetest.digprop_constanttime(0.0),
-	furnace_burntime = 3,
-
-})
 
 minetest.register_node("home_mod:white_wallpaper", {
 	drawtype = "signlike",
@@ -392,6 +251,68 @@ minetest.register_craftitem("home_mod:moss", {
 	on_place_on_ground = minetest.craftitem_place_item,
 
 })
+
+minetest.register_craftitem("home_mod:rose_petal", {
+	image = "rose_petal.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:dandelion_white_petal", {
+	image = "dandelion_white_petal.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:viola_petal", {
+	image = "viola_petal.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:tulip_petal", {
+	image = "tulip_petal.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:dandelion_yellow_petal", {
+	image = "dandelion_yellow_petal.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:rose_can", {
+	image = "rose_can.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:dandelion_yellow_can", {
+	image = "dandelion_yellow_can.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+
+minetest.register_craftitem("home_mod:tulip_can", {
+	image = "tulip_can.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:dandelion_white_can", {
+	image = "dandelion_white_can.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:viola_can", {
+	image = "viola_can.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
 
 minetest.register_craftitem("home_mod:chisel", {
 	image = "chisel.png",
