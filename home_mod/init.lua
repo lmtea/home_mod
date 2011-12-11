@@ -1,0 +1,371 @@
+--Home mod by lmtea
+
+minetest.register_craft({
+	output = 'node "home_mod:rose_petal" 6',
+	recipe = {
+		{'node "flowers:flower_rose"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:dandelion_yellow_petal" 6',
+	recipe = {
+		{'node "flowers:flower_dandelion_yellow"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:dandelion_white_petal" 6',
+	recipe = {
+		{'node "flowers:flower_dandelion_white"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:tulip_petal" 6',
+	recipe = {
+		{'node "flowers:flower_tulip"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:viola_petal" 6',
+	recipe = {
+		{'node "flowers:flower_viola"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:rose_can" 1',
+	recipe = {
+		{'node "cobble"', "", 'node "cobble"'},
+		{'node "cobble"', 'node "home_mod:rose_petal"', 'node "cobble"'},
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:tulip_can" 1',
+	recipe = {
+		{'node "cobble"', "", 'node "cobble"'},
+		{'node "cobble"', 'node "home_mod:tulip_petal"', 'node "cobble"'},
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:viola_can" 1',
+	recipe = {
+		{'node "cobble"', "", 'node "cobble"'},
+		{'node "cobble"', 'node "home_mod:viola_petal"', 'node "cobble"'},
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:dandelion_yellow_can" 1',
+	recipe = {
+		{'node "cobble"', "", 'node "cobble"'},
+		{'node "cobble"', 'node "home_mod:dandelion_yellow_petal"', 'node "cobble"'},
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:dandelion_white_can" 1',
+	recipe = {
+		{'node "cobble"', "", 'node "cobble"'},
+		{'node "cobble"', 'node "home_mod:dandelion_white_petal"', 'node "cobble"'},
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:red_wallpaper" 1',
+	recipe = {
+		{'node "home_mod:rose_can"'},
+		{'craft "paper"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:violet_wallpaper" 1',
+	recipe = {
+		{'node "home_mod:viola_can"'},
+		{'craft "paper"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:orange_wallpaper" 1',
+	recipe = {
+		{'node "home_mod:tulip_can"'},
+		{'craft "paper"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:yellow_wallpaper" 1',
+	recipe = {
+		{'node "home_mod:dandelion_yellow_can"'},
+		{'craft "paper"'},
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:white_wallpaper" 1',
+	recipe = {
+		{'node "home_mod:dandelion_white_can"'},
+		{'craft "paper"'},
+	}
+})
+
+
+
+
+----------------------------
+
+
+minetest.register_node("home_mod:rose_petal", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"rose_petal.png"},
+	inventory_image = "rose_petal.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:rose_petal" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:dandelion_yellow_petal", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"dandelion_yellow_petal.png"},
+	inventory_image = "dandelion_yellow_petal.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:dandelion_yellow_petal" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:dandelion_white_petal", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"dandelion_white_petal.png"},
+	inventory_image = "dandelion_white_petal.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:dandelion_white_petal" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:tulip_petal", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"tulip_petal.png"},
+	inventory_image = "tulip_petal.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:tulip_petal" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:viola_petal", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"viola_petal.png"},
+	inventory_image = "viola_petal.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:viola_petal" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:rose_can", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"rose_can.png"},
+	inventory_image = "rose_can.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:rose_can" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:tulip_can", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"tulip_can.png"},
+	inventory_image = "tulip_can.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:tulip_can" 1',
+	material = minetest.digprop_constanttime(0.0),
+
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:viola_can", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"viola_can.png"},
+	inventory_image = "viola_can.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:viola_can" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:dandelion_yellow_can", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"dandelion_yellow_can.png"},
+	inventory_image = "dandelion_yellow_can.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:dandelion_yellow_can" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:dandelion_white_can", {
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tile_images = {"dandelion_white_can.png"},
+	inventory_image = "dandelion_white_can.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:dandelion_white_can" 1',
+	material = minetest.digprop_constanttime(0.0),
+	furnace_burntime = 3,
+
+})
+
+minetest.register_node("home_mod:white_wallpaper", {
+	drawtype = "signlike",
+	tile_images = {"white_wallpaper.png"},
+	inventory_image = "white_wallpaper.png",
+	paramtype = "light",
+	wall_mounted = true,
+	is_ground_content = true,
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:white_wallpaper" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = 3,
+})
+
+minetest.register_node("home_mod:red_wallpaper", {
+	drawtype = "signlike",
+	tile_images = {"red_wallpaper.png"},
+	inventory_image = "red_wallpaper.png",
+	paramtype = "light",
+	wall_mounted = true,
+	is_ground_content = true,
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:red_wallpaper" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = 3,
+})
+
+minetest.register_node("home_mod:yellow_wallpaper", {
+	drawtype = "signlike",
+	tile_images = {"yellow_wallpaper.png"},
+	inventory_image = "yellow_wallpaper.png",
+	paramtype = "light",
+	wall_mounted = true,
+	is_ground_content = true,
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:yellow_wallpaper" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = 3,
+})
+
+minetest.register_node("home_mod:violet_wallpaper", {
+	drawtype = "signlike",
+	tile_images = {"violet_wallpaper.png"},
+	inventory_image = "violet_wallpaper.png",
+	paramtype = "light",
+	wall_mounted = true,
+	is_ground_content = true,
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:violet_wallpaper" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = 3,
+})
+
+minetest.register_node("home_mod:orange_wallpaper", {
+	drawtype = "signlike",
+	tile_images = {"orange_wallpaper.png"},
+	inventory_image = "orange_wallpaper.png",
+	paramtype = "light",
+	wall_mounted = true,
+	is_ground_content = true,
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:orange_wallpaper" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = 3,
+})
+
+
+print("[Home_mod] Loaded!")
