@@ -1,5 +1,3 @@
---Home mod by lmtea
-
 minetest.register_craft({
 	output = 'node "home_mod:rose_petal" 6',
 	recipe = {
@@ -119,6 +117,26 @@ minetest.register_craft({
 		{'craft "paper"'},
 	}
 })
+
+minetest.register_craft({
+	output = 'craft "home_mod:chisel" 1',
+	recipe = {
+		{'craft "default:steel_ingot"', 'craft "default:steel_ingot"', 'craft "default:steel_ingot"'},
+		{'' , 'craft "default:steel_ingot"', '' },
+		{'' , 'craft "default:stick"', '' }
+	}
+})
+
+minetest.register_craft({
+	output = 'node "default:mossycobble" 1',
+	recipe = {
+		{'craft "bucket:bucket_water"'},
+		{'craft "home_mod:moss"' },
+		{'node "default:cobble"' }
+	}
+})
+
+
 
 
 
@@ -366,6 +384,31 @@ minetest.register_node("home_mod:orange_wallpaper", {
 	},
 	furnace_burntime = 3,
 })
+
+--------------------------------------
+
+minetest.register_craftitem("home_mod:moss", {
+	image = "moss.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+
+})
+
+minetest.register_craftitem("home_mod:chisel", {
+	image = "chisel.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+	on_use = function(item, player, pointed_thing)
+		if pointed_thing.type == "node" then
+			n = minetest.env:get_node(pointed_thing.under)
+			if n.name == "default:mossycobble" then
+				minetest.env:add_node(pointed_thing.under, {name="default:cobble"})
+				player:add_to_inventory_later('craft "home_mod:moss" 1')
+			end
+		end
+		return false
+	end,
+})
+
+
 
 
 print("[Home_mod] Loaded!")
