@@ -34,87 +34,52 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'craft "home_mod:can" 1',
+	recipe = {
+		{'craft "steel_ingot"', "", 'craft "steel_ingot"'},
+		{'craft "steel_ingot"', "", 'craft "steel_ingot"'},
+		{'craft "steel_ingot"', 'craft "steel_ingot"', 'craft "steel_ingot"'}
+	}
+})
+
+
+minetest.register_craft({
 	output = 'craft "home_mod:rose_can" 1',
 	recipe = {
-		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'craft "home_mod:rose_petal"', 'node "cobble"'},
-		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+		{"craft home_mod:rose_petal"},
+		{'craft "home_mod:can"'},
 	}
 })
 
 minetest.register_craft({
 	output = 'craft "home_mod:tulip_can" 1',
 	recipe = {
-		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'craft "home_mod:tulip_petal"', 'node "cobble"'},
-		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+		{"craft home_mod:tulip_petal"},
+		{'craft "home_mod:can"'},
 	}
 })
 
 minetest.register_craft({
 	output = 'craft "home_mod:viola_can" 1',
 	recipe = {
-		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'craft "home_mod:viola_petal"', 'node "cobble"'},
-		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+		{"craft home_mod:viola_petal"},
+		{'craft "home_mod:can"'},
 	}
 })
 
 minetest.register_craft({
 	output = 'craft "home_mod:dandelion_yellow_can" 1',
 	recipe = {
-		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'craft "home_mod:dandelion_yellow_petal"', 'node "cobble"'},
-		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
+		{"craft home_mod:dandelion_yellow_petal"},
+		{'craft "home_mod:can"'},
 	}
 })
 
 minetest.register_craft({
 	output = 'craft "home_mod:dandelion_white_can" 1',
 	recipe = {
-		{'node "cobble"', "", 'node "cobble"'},
-		{'node "cobble"', 'craft "home_mod:dandelion_white_petal"', 'node "cobble"'},
-		{'node "cobble"', 'node "cobble"', 'node "cobble"'}
-	}
-})
-
-minetest.register_craft({
-	output = 'node "home_mod:red_wallpaper" 1',
-	recipe = {
-		{'node "home_mod:rose_can"'},
-		{'craft "paper"'},
-	}
-})
-
-minetest.register_craft({
-	output = 'node "home_mod:violet_wallpaper" 1',
-	recipe = {
-		{'node "home_mod:viola_can"'},
-		{'craft "paper"'},
-	}
-})
-
-minetest.register_craft({
-	output = 'node "home_mod:orange_wallpaper" 1',
-	recipe = {
-		{'node "home_mod:tulip_can"'},
-		{'craft "paper"'},
-	}
-})
-
-minetest.register_craft({
-	output = 'node "home_mod:yellow_wallpaper" 1',
-	recipe = {
-		{'node "home_mod:dandelion_yellow_can"'},
-		{'craft "paper"'},
-	}
-})
-
-minetest.register_craft({
-	output = 'node "home_mod:white_wallpaper" 1',
-	recipe = {
-		{'node "home_mod:dandelion_white_can"'},
-		{'craft "paper"'},
+		{"craft home_mod:dandelion_white_petal"},
+		{'craft "home_mod:can"'},
 	}
 })
 
@@ -136,33 +101,16 @@ minetest.register_craft({
 	}
 })
 
-
-
-
+minetest.register_craft({
+	output = 'node "home_mod:white_wallpaper" 1',
+	recipe = {
+		{'craft "default:paper"'},
+	}
+})
 
 
 ----------------------------
 
-
-minetest.register_node("home_mod:white_wallpaper", {
-	drawtype = "signlike",
-	tile_images = {"white_wallpaper.png"},
-	inventory_image = "white_wallpaper.png",
-	paramtype = "light",
-	wall_mounted = true,
-	is_ground_content = true,
-	sunlight_propagates = true,
-	walkable = false,
-	dug_item = 'node "home_mod:white_wallpaper" 1',
-	material = minetest.digprop_constanttime(0.0),
-	selection_box = {
-		type = "wallmounted",
-		--wall_top = = <default>
-		--wall_bottom = = <default>
-		--wall_side = = <default>
-	},
-	furnace_burntime = 3,
-})
 
 minetest.register_node("home_mod:red_wallpaper", {
 	drawtype = "signlike",
@@ -244,12 +192,43 @@ minetest.register_node("home_mod:orange_wallpaper", {
 	furnace_burntime = 3,
 })
 
+minetest.register_node("home_mod:white_wallpaper", {
+	drawtype = "signlike",
+	tile_images = {"white_wallpaper.png"},
+	inventory_image = "white_wallpaper.png",
+	paramtype = "light",
+	wall_mounted = true,
+	is_ground_content = true,
+	sunlight_propagates = true,
+	walkable = false,
+	dug_item = 'node "home_mod:white_wallpaper" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = 3,
+})
+
+minetest.register_node("home_mod:red_glass", {
+	drawtype = "glasslike",
+	tile_images = {"red_glass.png"},
+	inventory_image = minetest.inventorycube("red_glass.png"),
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	material = minetest.digprop_glasslike(1.0),
+})
+
+
+
 --------------------------------------
 
 minetest.register_craftitem("home_mod:moss", {
 	image = "moss.png",
 	on_place_on_ground = minetest.craftitem_place_item,
-
 })
 
 minetest.register_craftitem("home_mod:rose_petal", {
@@ -285,12 +264,36 @@ minetest.register_craftitem("home_mod:dandelion_yellow_petal", {
 minetest.register_craftitem("home_mod:rose_can", {
 	image = "rose_can.png",
 	on_place_on_ground = minetest.craftitem_place_item,
+	on_use = function(item, player, pointed_thing)
+		if pointed_thing.type == "node" then
+			n = minetest.env:get_node(pointed_thing.under)
+			if n.name == "home_mod:white_wallpaper" then
+				minetest.env:add_node(pointed_thing.under, {name="air"})
+				player:add_to_inventory_later('node "home_mod:red_wallpaper" 1')
+				player:add_to_inventory_later('craft "home_mod:can" 1')
+				return true
+			end
+		end
+		return false
+	end,
 
 })
 
 minetest.register_craftitem("home_mod:dandelion_yellow_can", {
 	image = "dandelion_yellow_can.png",
 	on_place_on_ground = minetest.craftitem_place_item,
+	on_use = function(item, player, pointed_thing)
+		if pointed_thing.type == "node" then
+			n = minetest.env:get_node(pointed_thing.under)
+			if n.name == "home_mod:white_wallpaper" then
+				minetest.env:add_node(pointed_thing.under, {name="air"})
+				player:add_to_inventory_later('node "home_mod:yellow_wallpaper" 1')
+				player:add_to_inventory_later('craft "home_mod:can" 1')
+				return true
+			end
+		end
+		return false
+	end,
 
 })
 
@@ -298,18 +301,41 @@ minetest.register_craftitem("home_mod:dandelion_yellow_can", {
 minetest.register_craftitem("home_mod:tulip_can", {
 	image = "tulip_can.png",
 	on_place_on_ground = minetest.craftitem_place_item,
+	on_use = function(item, player, pointed_thing)
+		if pointed_thing.type == "node" then
+			n = minetest.env:get_node(pointed_thing.under)
+			if n.name == "home_mod:white_wallpaper" then
+				minetest.env:add_node(pointed_thing.under, {name="air"})
+				player:add_to_inventory_later('node "home_mod:orange_wallpaper" 1')
+				player:add_to_inventory_later('craft "home_mod:can" 1')
+				return true
+			end
+		end
+		return false
+	end,
 
 })
 
 minetest.register_craftitem("home_mod:dandelion_white_can", {
 	image = "dandelion_white_can.png",
 	on_place_on_ground = minetest.craftitem_place_item,
-
 })
 
 minetest.register_craftitem("home_mod:viola_can", {
 	image = "viola_can.png",
 	on_place_on_ground = minetest.craftitem_place_item,
+	on_use = function(item, player, pointed_thing)
+		if pointed_thing.type == "node" then
+			n = minetest.env:get_node(pointed_thing.under)
+			if n.name == "home_mod:white_wallpaper" then
+				minetest.env:add_node(pointed_thing.under, {name="air"})
+				player:add_to_inventory_later('node "home_mod:violet_wallpaper" 1')	
+				player:add_to_inventory_later('craft "home_mod:can" 1')
+				return true				
+			end
+		end
+		return false
+	end,
 
 })
 
@@ -329,7 +355,10 @@ minetest.register_craftitem("home_mod:chisel", {
 	end,
 })
 
-
+minetest.register_craftitem("home_mod:can", {
+	image = "can.png",
+	on_place_on_ground = minetest.craftitem_place_item,
+})
 
 
 print("[Home_mod] Loaded!")
