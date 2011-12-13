@@ -108,6 +108,41 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = 'craft "home_mod:scoop" 1',
+	recipe = {
+		{'craft "default:steel_ingot"', 'craft "default:steel_ingot"', 'craft "default:steel_ingot"'},
+		{'craft "default:steel_ingot"', 'craft "default:steel_ingot"', 'craft "default:steel_ingot"'},
+		{'' , 'craft "default:stick"', '' }
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:dustbin" 1',
+	recipe = {
+		{'node "default:cactus"', 'node "default:cactus"', 'node "default:cactus"'},
+		{'node "default:cactus"', '', 'node "default:cactus"' },
+		{'node "default:cactus"', 'node "default:cactus"', 'node "default:cactus"' }
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:glass_pane" 1',
+	recipe = {
+		{'node "default:glass"', 'node "default:glass"', 'node "default:glass"'},
+		{'node "default:glass"', 'node "default:glass"', 'node "default:glass"'}
+	}
+})
+
+minetest.register_craft({
+	output = 'node "home_mod:fireplace" 1',
+	recipe = {
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'},
+		{'node "cobble"', 'node "default:torch"', 'node "cobble"'},
+		{'node "cobble"', 'node "cobble"', 'node "cobble"'},
+	}
+})
+
 
 ----------------------------
 
@@ -129,7 +164,7 @@ minetest.register_node("home_mod:red_wallpaper", {
 		--wall_bottom = = <default>
 		--wall_side = = <default>
 	},
-	furnace_burntime = 3,
+	furnace_burntime = -1,
 })
 
 minetest.register_node("home_mod:yellow_wallpaper", {
@@ -149,7 +184,7 @@ minetest.register_node("home_mod:yellow_wallpaper", {
 		--wall_bottom = = <default>
 		--wall_side = = <default>
 	},
-	furnace_burntime = 3,
+	furnace_burntime = -1,
 })
 
 minetest.register_node("home_mod:violet_wallpaper", {
@@ -169,7 +204,7 @@ minetest.register_node("home_mod:violet_wallpaper", {
 		--wall_bottom = = <default>
 		--wall_side = = <default>
 	},
-	furnace_burntime = 3,
+	furnace_burntime = -1,
 })
 
 minetest.register_node("home_mod:orange_wallpaper", {
@@ -189,7 +224,7 @@ minetest.register_node("home_mod:orange_wallpaper", {
 		--wall_bottom = = <default>
 		--wall_side = = <default>
 	},
-	furnace_burntime = 3,
+	furnace_burntime = -1,
 })
 
 minetest.register_node("home_mod:white_wallpaper", {
@@ -209,19 +244,48 @@ minetest.register_node("home_mod:white_wallpaper", {
 		--wall_bottom = = <default>
 		--wall_side = = <default>
 	},
-	furnace_burntime = 3,
+	furnace_burntime = -1,
 })
 
-minetest.register_node("home_mod:red_glass", {
-	drawtype = "glasslike",
-	tile_images = {"red_glass.png"},
-	inventory_image = minetest.inventorycube("red_glass.png"),
+minetest.register_node("home_mod:glass_pane", {
+	drawtype = "signlike",
+	tile_images = {"glass_pane.png"},
+	inventory_image = "glass_pane.png",
 	paramtype = "light",
-	sunlight_propagates = true,
+	wall_mounted = true,
 	is_ground_content = true,
-	material = minetest.digprop_glasslike(1.0),
+	sunlight_propagates = true,
+	walkable = true,
+	dug_item = 'node "home_mod:glass_pane" 1',
+	material = minetest.digprop_constanttime(0.0),
+	selection_box = {
+		type = "wallmounted",
+		--wall_top = = <default>
+		--wall_bottom = = <default>
+		--wall_side = = <default>
+	},
+	furnace_burntime = -1,
 })
 
+minetest.register_node("home_mod:dustbin", {
+	tile_images = {"dustbin_top.png", "dustbin_down.png", "dustbin_side.png",
+		"dustbin_side.png", "dustbin_back.png", "dustbin_front.png"},
+	inventory_image = minetest.inventorycube("dustbin_top.png", "dustbin_front.png", "dustbin_side.png"),
+	paramtype = "facedir_simple",
+	metadata_name = "chest",
+	material = minetest.digprop_woodlike(1.0),
+	furnace_burntime = 30,
+})
+
+minetest.register_node("home_mod:fireplace", {
+	tile_images = {"fireplace_side.png", "fireplace_side.png", "fireplace_side.png",
+		"fireplace_side.png", "fireplace_side.png", "fireplace_front.png"},
+	inventory_image = minetest.inventorycube("fireplace_side.png", "fireplace_front.png", "fireplace_side.png"),
+	paramtype = "facedir_simple",
+	light_source = LIGHT_MAX,
+	material = minetest.digprop_stonelike(3.0),
+	furnace_burntime = -1,
+})
 
 
 --------------------------------------
@@ -262,80 +326,94 @@ minetest.register_craftitem("home_mod:dandelion_yellow_petal", {
 })
 
 minetest.register_craftitem("home_mod:rose_can", {
-	image = "rose_can.png",
-	on_place_on_ground = minetest.craftitem_place_item,
-	on_use = function(item, player, pointed_thing)
-		if pointed_thing.type == "node" then
-			n = minetest.env:get_node(pointed_thing.under)
-			if n.name == "home_mod:white_wallpaper" then
-				minetest.env:add_node(pointed_thing.under, {name="air"})
-				player:add_to_inventory_later('node "home_mod:red_wallpaper" 1')
-				player:add_to_inventory_later('craft "home_mod:can" 1')
-				return true
-			end
-		end
-		return false
-	end,
-
+    image = "rose_can.png",
+    on_place_on_ground = minetest.craftitem_place_item,
+    on_use = function(item, player, pointed_thing)
+        if pointed_thing.type == "node" then
+            n = minetest.env:get_node(pointed_thing.under)
+            if string.match(n.name, "home_mod:%a-_wallpaper") ~= nil then
+                minetest.env:remove_node(pointed_thing)
+                minetest.env:add_node(pointed_thing.under, {name="home_mod:red_wallpaper", param2=n.param2})
+                player:add_to_inventory_later('craft "home_mod:can" 1')
+                return true
+            end
+        end
+        return false
+    end,
 })
 
 minetest.register_craftitem("home_mod:dandelion_yellow_can", {
-	image = "dandelion_yellow_can.png",
-	on_place_on_ground = minetest.craftitem_place_item,
-	on_use = function(item, player, pointed_thing)
-		if pointed_thing.type == "node" then
-			n = minetest.env:get_node(pointed_thing.under)
-			if n.name == "home_mod:white_wallpaper" then
-				minetest.env:add_node(pointed_thing.under, {name="air"})
-				player:add_to_inventory_later('node "home_mod:yellow_wallpaper" 1')
-				player:add_to_inventory_later('craft "home_mod:can" 1')
-				return true
-			end
-		end
-		return false
-	end,
+    image = "dandelion_yellow_can.png",
+    on_place_on_ground = minetest.craftitem_place_item,
+    on_use = function(item, player, pointed_thing)
+        if pointed_thing.type == "node" then
+            n = minetest.env:get_node(pointed_thing.under)
+            if string.match(n.name, "home_mod:%a-_wallpaper") ~= nil then
+                minetest.env:remove_node(pointed_thing)
+                minetest.env:add_node(pointed_thing.under, {name="home_mod:yellow_wallpaper", param2=n.param2})
+                player:add_to_inventory_later('craft "home_mod:can" 1')
+                return true
+            end
+        end
+        return false
+    end,
 
 })
 
 
 minetest.register_craftitem("home_mod:tulip_can", {
-	image = "tulip_can.png",
-	on_place_on_ground = minetest.craftitem_place_item,
-	on_use = function(item, player, pointed_thing)
-		if pointed_thing.type == "node" then
-			n = minetest.env:get_node(pointed_thing.under)
-			if n.name == "home_mod:white_wallpaper" then
-				minetest.env:add_node(pointed_thing.under, {name="air"})
-				player:add_to_inventory_later('node "home_mod:orange_wallpaper" 1')
-				player:add_to_inventory_later('craft "home_mod:can" 1')
-				return true
-			end
-		end
-		return false
-	end,
+    image = "tulip_can.png",
+    on_place_on_ground = minetest.craftitem_place_item,
+    on_use = function(item, player, pointed_thing)
+        if pointed_thing.type == "node" then
+            n = minetest.env:get_node(pointed_thing.under)
+            if string.match(n.name, "home_mod:%a-_wallpaper") ~= nil then
+                minetest.env:remove_node(pointed_thing)
+                minetest.env:add_node(pointed_thing.under, {name="home_mod:orange_wallpaper", param2=n.param2})
+                player:add_to_inventory_later('craft "home_mod:can" 1')
+                return true
+            end
+        end
+        return false
+    end,
+
 
 })
 
 minetest.register_craftitem("home_mod:dandelion_white_can", {
-	image = "dandelion_white_can.png",
-	on_place_on_ground = minetest.craftitem_place_item,
+    image = "dandelion_white_can.png",
+    on_place_on_ground = minetest.craftitem_place_item,
+    on_use = function(item, player, pointed_thing)
+        if pointed_thing.type == "node" then
+            n = minetest.env:get_node(pointed_thing.under)
+            if string.match(n.name, "home_mod:%a-_wallpaper") ~= nil then
+                minetest.env:remove_node(pointed_thing)
+                minetest.env:add_node(pointed_thing.under, {name="home_mod:white_wallpaper", param2=n.param2})
+                player:add_to_inventory_later('craft "home_mod:can" 1')
+                return true
+            end
+        end
+        return false
+    end,
+
 })
 
 minetest.register_craftitem("home_mod:viola_can", {
-	image = "viola_can.png",
-	on_place_on_ground = minetest.craftitem_place_item,
-	on_use = function(item, player, pointed_thing)
-		if pointed_thing.type == "node" then
-			n = minetest.env:get_node(pointed_thing.under)
-			if n.name == "home_mod:white_wallpaper" then
-				minetest.env:add_node(pointed_thing.under, {name="air"})
-				player:add_to_inventory_later('node "home_mod:violet_wallpaper" 1')	
-				player:add_to_inventory_later('craft "home_mod:can" 1')
-				return true				
-			end
-		end
-		return false
-	end,
+    image = "viola_can.png",
+    on_place_on_ground = minetest.craftitem_place_item,
+    on_use = function(item, player, pointed_thing)
+        if pointed_thing.type == "node" then
+            n = minetest.env:get_node(pointed_thing.under)
+            if string.match(n.name, "home_mod:%a-_wallpaper") ~= nil then
+                minetest.env:remove_node(pointed_thing)
+                minetest.env:add_node(pointed_thing.under, {name="home_mod:violet_wallpaper", param2=n.param2})
+                player:add_to_inventory_later('craft "home_mod:can" 1')
+                return true
+            end
+        end
+        return false
+    end,
+
 
 })
 
@@ -359,6 +437,24 @@ minetest.register_craftitem("home_mod:can", {
 	image = "can.png",
 	on_place_on_ground = minetest.craftitem_place_item,
 })
+
+
+minetest.register_craftitem("home_mod:scoop", {
+    image = "scoop.png",
+    on_place_on_ground = minetest.craftitem_place_item,
+    on_use = function(item, player, pointed_thing)
+        if pointed_thing.type == "node" then
+            n = minetest.env:get_node(pointed_thing.under)
+            if string.match(n.name, "home_mod:dustbin") ~= nil then
+                minetest.env:remove_node(pointed_thing)
+                minetest.env:add_node(pointed_thing.under, {name="home_mod:dustbin", param2=n.param2})
+            end
+        end
+        return false
+    end,
+
+})
+
 
 
 print("[Home_mod] Loaded!")
