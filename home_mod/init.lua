@@ -257,7 +257,7 @@ minetest.register_node("home_mod:glass_pane", {
 	sunlight_propagates = true,
 	walkable = true,
 	dug_item = 'node "home_mod:glass_pane" 1',
-	material = minetest.digprop_constanttime(0.0),
+	material = minetest.digprop_glasslike(1.0),
 	selection_box = {
 		type = "wallmounted",
 		--wall_top = = <default>
