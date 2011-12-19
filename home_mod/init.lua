@@ -668,7 +668,7 @@ minetest.register_craftitem("home_mod:rose_can", {
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:red_stone", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
                 return true
-            elseif string.match(n.name, "%a-tree") ~= nil then
+            elseif string.match(n.name, "%a-_tree") ~= nil then
                 minetest.env:remove_node(pointed_thing)
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:red_tree", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
@@ -721,7 +721,7 @@ minetest.register_craftitem("home_mod:dandelion_yellow_can", {
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:yellow_stone", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
                 return true
-            elseif string.match(n.name, "%a-tree") ~= nil then
+            elseif string.match(n.name, "%a-_tree") ~= nil then
                 minetest.env:remove_node(pointed_thing)
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:yellow_tree", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
@@ -774,7 +774,7 @@ minetest.register_craftitem("home_mod:tulip_can", {
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:orange_stone", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
                 return true
-            elseif string.match(n.name, "%a-tree") ~= nil then
+            elseif string.match(n.name, "%a-_tree") ~= nil then
                 minetest.env:remove_node(pointed_thing)
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:orange_tree", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
@@ -827,7 +827,7 @@ minetest.register_craftitem("home_mod:viola_can", {
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:violet_stone", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
                 return true
-            elseif string.match(n.name, "%a-tree") ~= nil then
+            elseif string.match(n.name, "%a-_tree") ~= nil then
                 minetest.env:remove_node(pointed_thing)
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:violet_tree", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
@@ -880,7 +880,7 @@ minetest.register_craftitem("home_mod:dandelion_white_can", {
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:white_stone", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
                 return true
-            elseif string.match(n.name, "%a-tree") ~= nil then
+            elseif string.match(n.name, "%a-_tree") ~= nil then
                 minetest.env:remove_node(pointed_thing)
                 minetest.env:add_node(pointed_thing.under, {name="home_mod:white_tree", param2=n.param2})
                 player:add_to_inventory_later('craft "home_mod:can" 1')
@@ -918,7 +918,7 @@ minetest.register_craftitem("home_mod:chisel", {
                 		minetest.env:add_node(pointed_thing.under, {name="default:steelblock", param2=n.param2})
             		elseif string.match(n.name, "%a-stone") ~= nil then
                 		minetest.env:add_node(pointed_thing.under, {name="default:stone", param2=n.param2})
-            		elseif string.match(n.name, "%a-tree") ~= nil then
+            		elseif string.match(n.name, "%a-_tree") ~= nil then
                 		minetest.env:add_node(pointed_thing.under, {name="default:tree", param2=n.param2})
             		elseif string.match(n.name, "%a-brick") ~= nil then
                 		minetest.env:add_node(pointed_thing.under, {name="default:brick", param2=n.param2})
